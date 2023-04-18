@@ -113,7 +113,7 @@ window.onload = function() {
 
     function add() {
         let todo = document.getElementById("toDo").value;
-    
+        if(todo!=""){
         const tr = document.createElement("tr");
         const tdCheck = document.createElement("td");
         const tdText = document.createElement("td");
@@ -125,6 +125,7 @@ window.onload = function() {
             yapilacak[yapilacak.length - 1].text = tdText.textContent;
             localStorage.setItem("yapilacak", JSON.stringify(yapilacak));
     
+
             if (input.checked) {
                 tdText.style.textDecoration = "line-through";
             } else {
@@ -157,6 +158,9 @@ window.onload = function() {
         tr.appendChild(td);
     
         table.appendChild(tr);
+    }else{
+        alert("Lütfen todo alanını boş bırakmayınız.")
+    }
     
         document.getElementById("toDo").value = "";
     }
